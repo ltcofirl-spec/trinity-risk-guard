@@ -1,0 +1,10 @@
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+.env
+*.pyc
+.DS_Store
+*.key
+*credentials*
+# Team should review model traces and remove secrets before committing:
+# outputs/agent_trace.json
