@@ -1,0 +1,78 @@
+{
+  "governance_status": "HUMAN-REVIEW-REQUIRED",
+  "auto_overwrite_inventory": false,
+  "production_promotion_allowed": false,
+  "timestamp_utc": "2026-11-14T14:10:46.705856+00:00",
+  "llm_provider": "Ollama (Local)",
+  "llm_provider_model": "qwen2.5:7b",
+  "remote_api_used": false,
+  "source_file": "models/legacy_credit_score.R",
+  "source_sha256": "1145c791bfee998aa9157ba76a40620209ad89c7d1e2d714f078ccca98a3795f",
+  "independent_verification": {
+    "input_variable_recall": "4/5 (80%)",
+    "recovered_variables": [
+      "dti",
+      "income_k",
+      "late_payments_12m",
+      "utilization"
+    ],
+    "matched_coefficients": [],
+    "deterministic_reference_formula": "unknown",
+    "verification_status": "NEEDS_REVIEW"
+  },
+  "proposed_inventory_and_test_plan": {
+    "model_name": "Illustrative retail credit probability-of-default scorecard",
+    "inputs": [
+      "utilization",
+      "dti",
+      "income_k",
+      "late_payments_12m"
+    ],
+    "outputs": [
+      "probability of default",
+      "LOW/MEDIUM/HIGH review band"
+    ],
+    "methodology": "Fixed-coefficient logistic link with assumed coefficients and thresholds. The coefficients are based on explanatory odds-ratio assumptions and the intercept is selected to give a reference scenario PD ~ 8.9%. The logistic model is not statistically fitted from bank data.",
+    "assumptions": [
+      "Coefficients and thresholds are assumed, synthetic labels do not validate real-world performance",
+      "Coefficients are based on explanatory odds-ratio assumptions: utilization +10pp -> OR 1.179; DTI +10pp -> OR 1.120; income +EUR10k -> OR 0.960; one late payment -> OR 1.859. The intercept is selected to give a reference scenario (U=0.30, DTI=0.32, income_k=50, late=0) PD ~ 8.9%",
+      "The model is not statistically fitted from bank data"
+    ],
+    "limitations": [
+      "Coefficients and thresholds are assumed, synthetic labels do not validate real-world performance",
+      "No deployment approval",
+      "No statistically fitted coefficients",
+      "Fixed-coefficient logistic link, not estimated from data"
+    ],
+    "test_plan": {
+      "input_validation": [
+        "Check for missing required columns",
+        "Check for empty input data",
+        "Validate numeric ranges and finite values",
+        "Ensure late_payments_12m is an integer",
+        "Ensure customer_id is unique and nonmissing"
+      ],
+      "model_output": [
+        "Verify probability of default calculation",
+        "Verify risk band assignment",
+        "Ensure output columns match expected results"
+      ],
+      "environment": [
+        "Ensure only base R is required",
+        "Test with synthetic credit data",
+        "Test with various edge cases (e.g., boundary values, missing values)"
+      ]
+    },
+    "unknowns": [
+      "Real-world performance validation is unknown due to synthetic labels",
+      "Actual model performance is unknown",
+      "Real-world deployment approval is unknown"
+    ],
+    "evidence_lines": [
+      "The model is a synthetic legacy demonstration and is not intended for real-world use.",
+      "The coefficients and thresholds are assumed and not statistically fitted from bank data.",
+      "The model is a fixed-coefficient logistic link with specific explanatory odds-ratio assumptions.",
+      "The model is intended for illustrative purposes and is a candidate for Python migration."
+    ]
+  }
+}

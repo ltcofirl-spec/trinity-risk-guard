@@ -1,0 +1,11 @@
+[
+  {
+    "model_id":"CRD-001", "name":"Illustrative retail credit probability-of-default scorecard", "family":"credit risk", "language":"R", "source_file":"models/legacy_credit_score.R", "version":"SC-CREDIT-1.1", "status":"synthetic legacy demonstration; Python migration candidate", "inputs":["utilization","dti","income_k","late_payments_12m"], "outputs":["probability of default","LOW/MEDIUM/HIGH review band"], "method":"fixed-coefficient logistic link (not statistically fitted)", "owner":"Trinity Risk Guard simulation - no real bank owner", "risk_tier":"unassigned: illustrative only", "limitations":"Coefficients and thresholds are assumed, synthetic labels do not validate real-world performance; no deployment approval"
+  },
+  {
+    "model_id":"FRD-002", "name":"Illustrative transaction fraud triage rule", "family":"fraud", "language":"Python", "source_file":"models/legacy_fraud_rule.py", "version":"SYN-1", "status":"inventory only", "inputs":["amount_eur","velocity_24h","international"], "outputs":["heuristic fraud score"], "method":"fixed heuristic", "owner":"Trinity Risk Guard simulation", "risk_tier":"unassigned", "limitations":"Not trained; does not use any real transactions; not validated for fraud decisions"
+  },
+  {
+    "model_id":"PRC-003", "name":"Illustrative loan pricing calculation", "family":"pricing", "language":"Python", "source_file":"models/legacy_pricing_model.py", "version":"SYN-1", "status":"inventory only", "inputs":["pd_default","loan_term_months"], "outputs":["illustrative annual rate"], "method":"fixed example formula", "owner":"Trinity Risk Guard simulation", "risk_tier":"unassigned", "limitations":"Not market calibrated; excludes capital cost, funding and regulatory constraints"
+  }
+]

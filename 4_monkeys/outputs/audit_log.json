@@ -1,0 +1,27 @@
+[
+  {
+    "step": "inventory",
+    "status": "PREPARED",
+    "detail": "3 authored simulation records; automatic LLM extraction depends on Agent run"
+  },
+  {
+    "step": "python_score",
+    "status": "DONE",
+    "detail": "Fixed illustrative logistic scorecard"
+  },
+  {
+    "step": "parity",
+    "status": "NOT_RUN",
+    "detail": "Real Rscript reference required for PASS"
+  },
+  {
+    "step": "validation",
+    "status": "DONE",
+    "detail": "Synthetic performance/stability and fictional group diagnostics"
+  },
+  {
+    "step": "approval",
+    "status": "HUMAN_REVIEW_REQUIRED",
+    "detail": "No production or regulatory sign-off"
+  }
+]

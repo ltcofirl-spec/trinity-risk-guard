@@ -1,0 +1,13 @@
+{
+  "project": "Trinity Risk Guard",
+  "challenge": "EXL and Trinity 2026 Challenge 04 — Agentic Model Risk Factory",
+  "package_version": "v3",
+  "date": "2026-11-13",
+  "data": {"source": "team-authored synthetic", "rows": 1600, "reference_rows": 800, "current_rows": 800, "seed": 2026},
+  "model_inventory": {"records": 3, "status": "PREPARED_MANUALLY", "auto_extraction": "PENDING_LIVE_AGENT"},
+  "migration": {"r_source": "models/legacy_credit_score.R", "python_port": "scorecard_port.py", "code": "IMPLEMENTED", "actual_rscript_execution": "NOT_RUN", "record_level_parity": "NOT_RUN"},
+  "validation": {"python_evidence": "RUN", "performance": "RUN_SYNTHETIC", "stability": "RUN_DESIGNED_DRIFT", "fairness": "FICTIONAL_GROUP_METHOD_DEMO_ONLY"},
+  "agent": {"code": "IMPLEMENTED_TOOL_CALLING", "unit_test": "SIMULATED_ONLY", "actual_llm_execution": "NOT_RUN", "human_review_required": true},
+  "python_tests": {"status": "PASS", "passed": 15, "failed": 0},
+  "important": "No real Rscript or live LLM execution was available to the author; do not claim full end-to-end validation until team runs both."
+}

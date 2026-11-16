@@ -1,0 +1,155 @@
+{
+  "provenance": {
+    "synthetic_only": true,
+    "assumed_coefficients": true,
+    "seed": 2026,
+    "n": 1600,
+    "n_reference": 800,
+    "n_current": 800,
+    "scenario_only": true,
+    "review_thresholds_not_approved": true
+  },
+  "performance": {
+    "overall": {
+      "n": 1600,
+      "positives": 194,
+      "prevalence": 0.12125,
+      "mean_predicted_pd": 0.12176820581781117,
+      "auc": 0.6294965611297679,
+      "average_precision": 0.19833846617270637,
+      "brier": 0.10386641268359899,
+      "tpr": 0.26804123711340205,
+      "fpr": 0.12091038406827881,
+      "precision_at_threshold": 0.23423423423423423,
+      "confusion": {
+        "tn": 1236,
+        "fp": 170,
+        "fn": 142,
+        "tp": 52
+      }
+    },
+    "reference": {
+      "n": 800,
+      "positives": 87,
+      "prevalence": 0.10875,
+      "mean_predicted_pd": 0.1103146214548161,
+      "auc": 0.652802630942593,
+      "average_precision": 0.23028558841436003,
+      "brier": 0.09260936091190995,
+      "tpr": 0.2413793103448276,
+      "fpr": 0.08695652173913043,
+      "precision_at_threshold": 0.25301204819277107,
+      "confusion": {
+        "tn": 651,
+        "fp": 62,
+        "fn": 66,
+        "tp": 21
+      }
+    },
+    "current": {
+      "n": 800,
+      "positives": 107,
+      "prevalence": 0.13375,
+      "mean_predicted_pd": 0.13322179018080624,
+      "auc": 0.5970115035535597,
+      "average_precision": 0.18786269276286813,
+      "brier": 0.11512346445528802,
+      "tpr": 0.2897196261682243,
+      "fpr": 0.15584415584415584,
+      "precision_at_threshold": 0.22302158273381295,
+      "confusion": {
+        "tn": 585,
+        "fp": 108,
+        "fn": 76,
+        "tp": 31
+      }
+    }
+  },
+  "stability": {
+    "utilization_psi": 0.26918868822266717,
+    "dti_psi": 0.14640003422519948,
+    "income_k_psi": 0.03160037270329982,
+    "late_payments_12m_psi": 0.008351953075417824,
+    "predicted_pd_psi": 0.23350121726907203,
+    "reference_mean_utilization": 0.317571234875,
+    "current_mean_utilization": 0.393546823625
+  },
+  "fairness_method_demonstration": {
+    "disclaimer": "SIM_A/SIM_B are arbitrary fictional labels (NOT protected groups). Disparities are NOT an actual fairness audit.",
+    "groups": {
+      "SIM_A": {
+        "n": 801,
+        "positives": 98,
+        "prevalence": 0.12234706616729088,
+        "mean_predicted_pd": 0.12480391406270437,
+        "auc": 0.5770023514384417,
+        "average_precision": 0.18811475115831575,
+        "brier": 0.10635449210960016,
+        "tpr": 0.30612244897959184,
+        "fpr": 0.14082503556187767,
+        "precision_at_threshold": 0.23255813953488372,
+        "confusion": {
+          "tn": 604,
+          "fp": 99,
+          "fn": 68,
+          "tp": 30
+        },
+        "group_is_fictional": true
+      },
+      "SIM_B": {
+        "n": 799,
+        "positives": 96,
+        "prevalence": 0.12015018773466833,
+        "mean_predicted_pd": 0.1187248988038444,
+        "auc": 0.6864627785680417,
+        "average_precision": 0.22551748722518322,
+        "brier": 0.10137210527405341,
+        "tpr": 0.22916666666666666,
+        "fpr": 0.10099573257467995,
+        "precision_at_threshold": 0.23655913978494625,
+        "confusion": {
+          "tn": 632,
+          "fp": 71,
+          "fn": 74,
+          "tp": 22
+        },
+        "group_is_fictional": true
+      }
+    },
+    "diagnostic_gaps": {
+      "tpr_max_min_gap": 0.07695578231292519,
+      "fpr_max_min_gap": 0.03982930298719772,
+      "brier_max_min_gap": 0.004982386835546748,
+      "mean_predicted_pd_max_min_gap": 0.006079015258859968
+    },
+    "classification_threshold": 0.18,
+    "additional_data_needed": "lawful, representative protected-group data, decision policies, observed outcomes and qualified independent reviewers"
+  },
+  "review_flags": [
+    {
+      "severity": "REVIEW",
+      "check": "low_synthetic_auc",
+      "reason": "AUC < 0.70 heuristic, not EXL or bank threshold"
+    },
+    {
+      "severity": "REVIEW",
+      "check": "utilization_shift",
+      "reason": "PSI > .25 exploratory heuristic, not a bank policy"
+    },
+    {
+      "severity": "LIMITATION",
+      "check": "fictional_groups",
+      "reason": "SIM_A/SIM_B are randomly assigned and NOT protected traits; no fairness conclusion possible"
+    }
+  ],
+  "final_approval": "NOT APPROVED: demonstration and human review only",
+  "model_version": "SC-CREDIT-1.1",
+  "cross_language_parity": {
+    "status": "NOT_RUN",
+    "reason": "Rscript not available. Install base R in Colab/local and rerun pipeline."
+  },
+  "llm_agent": {
+    "status": "NOT_RUN",
+    "reason": "LLM tool-calling requires API configuration and a live run"
+  }
+}
